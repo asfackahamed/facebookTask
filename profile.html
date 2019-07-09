@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <title>Facebook</title>
+    <link type="text/css" rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="tableBody">
+            <div class="tableRow">
+                <div class="tableCell icon">
+                    <i class="fa fa-facebook-square fa-2x"></i>
+                </div>
+                <div class="tableCell search-form">
+                    <form method="get" action="#">
+                        <input type="text" placeholder="Search">
+                    </form>
+                </div>
+                <div class="tableCell">
+                    <div class="smallPic">
+                        <img src="dp.jpeg">
+                    </div>
+                </div>
+                <div class="tableCell navSubMenu">
+                    <span>Asfack Ahamed</span>
+                    <span>Home</span>
+                    <span>Create</span>
+                    <span style="cursor: pointer;" onClick="activityLog()">Activity Log</span>
+                    <span style="border-right: 0px solid #35518b;cursor: pointer;" onClick="logout()">Logout</span>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="coverWrapper">
+        <div class="coverImage">
+            <img src="cover.jpg">
+        </div>
+        <div class="profileWrapper">
+            <div class="profilePic">
+                <img src="dp.jpeg">
+            </div>
+            <div class="userName">Asfack Ahamed</div>
+        </div>
+    </div>
+
+    <div class="black-grd">
+        <div class="tableBody">
+            <div class="tableRow">
+                <div class="tableCell timelineMenu">
+                    <span></span>
+                    <span>Timeline <i class="fa fa-sort-desc"></i></span>
+                    <span>About</span>
+                    <span>Friends</span>
+                    <span>Photos</span>
+                    <span>Archive</span>
+                    <span>More <i class="fa fa-sort-desc"></i></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="leftSide fl">
+            <div class="black-grd1">
+                <div class="tableBody">
+
+                    <div id="myView"></div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="rightSide fr">
+
+            <div class="tableBody black-grd2">
+                <div class="tableRow">
+                    <div class="tableCell timelineMenu2">
+                        <i class="fa fa-pencil"></i><span>Create Post</span>
+                        <i class="fa fa-camera"></i><span>Photo/Video</span>
+                        <i class="fa fa-video-camera"></i><span>Live Video</span>
+                        <i class="fa fa-flag"></i><span>Life Event</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tableBody black-grd3">
+                <div class="tableRow">
+                    <div class="tableCell timelineMenu2">
+                        <div class="smallPic1">
+                            <img src="dp.jpeg">
+                        </div>
+                        <p>What's on your mind ?</p>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="tableBody black-grd3">
+                <div class="tableRow">
+                    <div class="tableCell timelineMenu2">
+                        <div class="smallPic1">
+                            <img src="dp.jpeg">
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        
+        var qs = new URLSearchParams(window.location.search);
+        var v1 = qs.get("ip");
+
+        var item = JSON.parse(localStorage.getItem('userDetails'));
+        var xx = item[v1];
+
+        function activityLog(){
+            var queryString = "?al=" + v1;
+            window.location.href = "activityLog.html" + queryString;
+        }
+
+        function logout() {
+            var userActivityLog = JSON.parse(localStorage.getItem('userActivityLog'));
+
+            var user = {
+                    userId: xx.id,
+                    username: xx.username,
+                    activity: "Loggedout",
+                    time: new Date()
+                };
+                userActivityLog.push(user)
+                localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+            window.location.href = "index.html";
+        }
+
+        if (v1 != null) {
+            
+            var queryString = "?pep=" + v1;
+
+            var details = `
+				<div class="tableRow">
+					<div class="tableCell timelineMenu1">
+						<i class="fa fa-globe fa-2x fl"></i> <span>Intro</span>
+					</div>
+					<div class="tableCell">
+						<i class="fa fa-pencil" style="cursor:pointer;" onClick="window.location='editProfile.html${queryString}';"></i>
+					</div>
+				</div>						
+
+				<br>
+
+				<div class="tableRow ">
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-briefcase"></i> <span>${ xx.jobRole + " at " + xx.organization } </span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-graduation-cap"></i> <span>${ "Studied at " + xx.college }</span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-graduation-cap"></i> <span>${ xx.school } </span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-briefcase"></i> <span>${ xx.birthCity }</span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-briefcase"></i> <span>${ xx.currentCity }</span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-briefcase"></i> <span>${ xx.state }</span>
+					</div>
+					<div class="tableCell timelineMenu3">
+						<i class="fa fa-briefcase"></i> <span>${ xx.country }</span>
+					</div>			
+				</div>
+				`;
+            document.getElementById("myView").innerHTML += details;
+        }
+    </script>
+</body>
+
+</html>

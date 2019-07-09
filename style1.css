@@ -1,0 +1,430 @@
+body
+{	
+	margin : 0;
+	font-family: Helvetica;
+    background-color:#E5E5E5;
+}
+
+header
+{
+    padding: 0px 70px;
+    background-color: #4267b2;
+}
+
+.tableBody
+{
+    display: table;
+    width: 100%;
+}
+
+.tableRow
+{
+    display: table-row;
+}
+
+.tableCell
+{
+    display: table-cell;
+}
+
+.icon{
+	top:5px;
+	position: relative;
+	width: 40px;
+	color:white;
+}
+
+.search-form form
+{
+    position: relative;
+    width: 350px;
+    font-size: 15px;
+    padding: 4px 4px;
+    background-color: #fff;
+	border-radius : 2px;
+}
+
+.search-form form input
+{
+    width: 100%;
+    color: #fff;
+    border: 0;    
+}
+
+.navSubMenu
+{
+    color: #fff;
+    font-weight: bold;
+	font-size:12px;
+}
+
+.navSubMenu span
+{
+    padding-right: 25px;
+	padding-left : 5px;
+    border-right: 1px solid #35518b;
+}
+
+.coverWrapper{
+	width:80%;
+	padding: 0px 100px;
+	position:relative;
+}
+
+.coverImage
+{
+    height: 250px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.coverImage img
+{
+    width: 100%;
+    margin-top: -5%;
+}
+
+.profileWrapper
+{
+    position: absolute;
+    left: 159px;
+    bottom: 0px;
+    right: 0px;
+    height: 180px;
+    z-index: 2;
+}
+
+.profilePic
+{
+    width: 160px;
+    height: 160px;
+    border-radius: 100px;
+    margin-top: 40px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #fff;
+}
+
+.profilePic img
+{
+    width: 100%;
+}
+
+.smallPic
+{
+	top:10px;
+	position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.smallPic img
+{
+    width: 100%;
+}
+
+
+.smallPic1
+{
+	top: 45px;
+	left : 15px;
+	position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.smallPic1 img
+{
+    width: 100%;
+}
+
+.userName
+{
+    position: absolute;
+    top: 120px;
+    left: 180px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.black-grd
+{
+	width:80%;
+	left:100px;
+	position: relative;
+    height: 45px;
+    background-color: white;   
+}
+
+.timelineMenu
+{
+    color: #000;
+    font-weight: bold;
+	font-size:15px;
+	position: absolute;
+	top:15px;	
+	margin-left: 350px;
+}
+
+.timelineMenu span
+{
+	padding:15px 25px 15px 25px;
+	color : #4267b2;
+    border-right: 1px solid #E5E5E5;
+}
+
+
+.main-content{
+	top: 15px;
+	width:80%;
+	padding: 0px 100px;
+	position:relative;
+}
+
+.main-content .leftSide{
+	width : 28%;
+}
+
+.main-content .rightSide{
+	width : 70%;
+}
+
+.editProfileContent{
+	width : 100%;
+}
+
+.black-grd1
+{
+	width:100%;
+	padding:15px 15px 5px 0px;
+	margin-bottom: 12px;
+	background-color:white;
+}
+
+.black-grd2
+{
+	width:100%;
+    height: 45px;
+    background-color: white;   
+}
+
+.black-grd3
+{
+	width:100%;
+    height: 120px;
+	margin-bottom: 12px;
+    background-color: white;   
+}
+
+.black-grd4
+{
+	width:100%;
+    height: 80px;
+	margin-bottom: 12px;
+    background-color: white;   
+}
+
+.timelineMenu1
+{
+    color: #000;
+	font-size:13px;
+}
+
+.timelineMenu1 i
+{
+	color : #4267b2;
+	padding-left: 20px;
+}
+
+.timelineMenu1 span
+{
+	padding:5px 5px 5px 5px;
+	font-size: 17px;
+	color : #4267b2;
+}
+
+.timelineMenu3
+{
+	width:100%;
+    color: #000;
+	font-size:12px;
+	float:left;
+	padding:10px 0px;
+}
+
+.timelineMenu3 i
+{
+	color : #4267b2;
+	padding-left: 20px;
+}
+
+.timelineMenu3 span
+{
+	padding:5px 5px 5px 5px;
+	font-size: 12px;
+	color : #000;
+}
+
+.timelineMenu2
+{
+    color: #000;
+    font-weight: bold;
+	font-size:15px;
+	position: absolute;
+	top:15px;
+	font-size:13px;
+}
+
+.timelineMenu2 i
+{
+	color : #4B4F56;
+	padding-left: 20px;
+}
+
+.timelineMenu2 span
+{
+	padding:5px 15px 5px 15px;
+	color : #4267b2;
+    border-right: 1px solid #E5E5E5;
+}
+
+.timelineMenu2 p
+{
+	padding:13px 15px 5px 65px;
+	color : gray;
+}
+
+.timelineMenu2 .activityLogs{
+	padding:40px 15px 5px 15px;
+	color : #4267b2;
+	float: left;
+}
+
+.timelineMenu2 .activityLogDetails{
+	padding:40px 15px 5px 0px;
+	float: left;
+	color :rgb(44, 44, 44);
+}
+
+.fl{
+	float:left;
+}
+
+.fr{
+	float:right;
+}
+
+.line{
+	width:100%;
+	border-bottom: 2px solid #E5E5E5;
+}
+
+.tab {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	width: 28%;
+	height: 300px;
+	float: left;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+	display: block;
+	background-color: inherit;
+	color: black;
+	padding: 10px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 15px;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  /* Create an active/current "tab button" class */
+  .tab button.active {
+	background-color: #35518b;
+	color: #fff;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	float: right;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 69%;
+	border-left: none;
+	height: 300px;
+	background-color: #fff;
+  }
+
+  .tabcontent1{
+	  width: 30%;
+	  margin-top: 20px;
+	  float: left;
+  }
+
+  .tabcontent1 h3{
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 5;
+	text-align: right;
+	margin-right: 20px;
+	margin-top: 20px;
+}
+
+  .tabcontent2{
+	margin-top: 20px;
+	width: 70%;
+	float: left;
+}
+
+.tabcontent3{
+	margin-top: 20px;
+	width: 100%;
+	float: left;
+}
+
+.inputtext {
+	border-color: gray;
+	width: 270px;
+	border: 1px solid gray;
+	padding: 3px;
+	border-radius: 4px;
+  }
+
+.saveBtn{
+	background: #35518b;
+	color: #fff;
+	display: block;
+	padding: 10px 16px;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 13px;
+	margin: 0px 20px 0px 290px;
+	float: left;
+}
+
+.cancelBtn{
+	display: block;
+	padding: 10px 16px;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 13px;
+}

@@ -1,0 +1,295 @@
+<html>
+
+<head>
+    <title>Facebook</title>
+    <link type="text/css" rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="tableBody">
+            <div class="tableRow">
+                <div class="tableCell icon">
+                    <i class="fa fa-facebook-square fa-2x"></i>
+                </div>
+                <div class="tableCell search-form">
+                    <form method="get" action="#">
+                        <input type="text" placeholder="Search">
+                    </form>
+                </div>
+                <div class="tableCell">
+                    <div class="smallPic">
+                        <img src="dp.jpeg">
+                    </div>
+                </div>
+                <div class="tableCell navSubMenu">
+                    <span style="cursor: pointer;" onClick="openProfile()">Asfack Ahamed</span>
+                    <span>Home</span>
+                    <span>Create</span>
+                    <span style="cursor: pointer;" onClick="activityLog()">Activity Log</span>
+                    <span style="border-right: 0px solid #35518b;cursor: pointer;" onClick="logout()">Logout</span>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="coverWrapper">
+        <div class="coverImage">
+            <img src="cover.jpg">
+        </div>
+        <div class="profileWrapper">
+            <div class="profilePic">
+                <img src="dp.jpeg">
+            </div>
+            <div class="userName">Asfack Ahamed</div>
+        </div>
+    </div>
+
+    <div class="black-grd">
+        <div class="tableBody">
+            <div class="tableRow">
+                <div class="tableCell timelineMenu">
+                    <span></span>
+                    <span>Timeline <i class="fa fa-sort-desc"></i></span>
+                    <span>About</span>
+                    <span>Friends</span>
+                    <span>Photos</span>
+                    <span>Archive</span>
+                    <span>More <i class="fa fa-sort-desc"></i></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="editProfileContent">
+
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Work')" id="defaultOpen"><i class="fa fa-briefcase"></i> Work</button>
+                <button class="tablinks" onclick="openTab(event, 'Place')"><i class="fa fa-globe"></i> Place</button>
+                <button class="tablinks" onclick="openTab(event, 'University')"><i class="fa fa-graduation-cap"></i> University</button>
+                <button class="tablinks" onclick="openTab(event, 'HighSchool')"><i class="fa fa-graduation-cap"></i> High School</button>
+            </div>
+
+            <div id="Work" class="tabcontent">
+                <div class="tabcontent1">
+                    <h3>Company Name</h3>
+                    <h3>Position</h3>
+                </div>
+                <div class="tabcontent2">
+                    <h3><input type="text" id="companyName" placeholder="Where have you worked ?" class="inputtext"></h3>
+                    <h3><input type="text" id="position" placeholder="What is your job title ?" class="inputtext"></h3>
+                </div>
+
+                <div class="tabcontent3">
+                    <button class="saveBtn" onclick="saveWork()">Save Changes</button>
+                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                </div>
+            </div>
+
+            <div id="Place" class="tabcontent">
+                <div class="tabcontent1">
+                    <h3>Current City</h3>
+                    <h3>Birth City</h3>
+                    <h3>State</h3>
+                    <h3>Country</h3>
+                </div>
+                <div class="tabcontent2">
+                    <h3><input type="text" id="currentCity" class="inputtext"></h3>
+                    <h3><input type="text" id="bithCity" class="inputtext"></h3>
+                    <h3><input type="text" id="state" class="inputtext"></h3>
+                    <h3><input type="text" id="country" class="inputtext"></h3>
+                </div>
+
+                <div class="tabcontent3">
+                    <button class="saveBtn" onclick="savePlace()">Save Changes</button>
+                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                </div>
+            </div>
+            <div id="University" class="tabcontent">
+                <div class="tabcontent1">
+                    <h3>College</h3>
+                </div>
+                <div class="tabcontent2">
+                    <h3><input type="text" id="college" placeholder="Which univesity did you attended?" class="inputtext"></h3>
+                </div>
+
+                <div class="tabcontent3">
+                    <button class="saveBtn" onclick="saveUniversity()">Save Changes</button>
+                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                </div>
+            </div>
+            <div id="HighSchool" class="tabcontent">
+                <div class="tabcontent1">
+                    <h3>School</h3>
+                </div>
+                <div class="tabcontent2">
+                    <h3><input type="text" id="school" placeholder="Which school did you attended?" class="inputtext"></h3>
+                </div>
+
+                <div class="tabcontent3">
+                    <button class="saveBtn" onclick="saveSchool()">Save Changes</button>
+                    <button class="cancelBtn" onclick="cancel()">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+		var qs = new URLSearchParams(window.location.search);
+        var v1 = qs.get("pep");
+
+		var userDetails = JSON.parse(localStorage.getItem('userDetails'));
+        var userActivityLog = JSON.parse(localStorage.getItem('userActivityLog'));
+        var xx;
+
+		if(v1 != null){				
+			xx = userDetails[v1];	
+			document.getElementById("companyName").value = xx.organization
+			document.getElementById("position").value = xx.jobRole	
+			document.getElementById("currentCity").value = xx.currentCity	
+			document.getElementById("bithCity").value = xx.birthCity	
+			document.getElementById("state").value = xx.state	
+			document.getElementById("country").value = xx.country	
+			document.getElementById("college").value = xx.college	
+			document.getElementById("school").value = xx.school	
+		}
+
+        function openProfile(){
+            var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+        function activityLog(){
+            var queryString = "?al=" + v1;
+            window.location.href = "activityLog.html" + queryString;
+        }
+
+        function saveWork() {
+            var companyName = document.getElementById("companyName").value
+            var position = document.getElementById("position").value
+
+			userDetails[v1].jobRole = position;
+			userDetails[v1].organization = companyName;
+			localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            var user = {
+                userId: xx.id,
+                username: xx.username,
+                activity: "updated work",
+                time: new Date()
+            };
+            userActivityLog.push(user)
+            localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+            var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+        function savePlace() {
+			var currentCity = document.getElementById("currentCity").value
+			var birthCity = document.getElementById("bithCity").value
+			var state = document.getElementById("state").value
+			var country = document.getElementById("country").value
+			
+			userDetails[v1].currentCity = currentCity;
+			userDetails[v1].birthCity = birthCity;
+			userDetails[v1].state = state;
+			userDetails[v1].country = country;
+			localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            var user = {
+                userId: xx.id,
+                username: xx.username,
+                activity: "updated place",
+                time: new Date()
+            };
+            userActivityLog.push(user)
+            localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+			var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+        function saveUniversity() {
+			var college = document.getElementById("college").value
+			
+			userDetails[v1].college = college;
+			localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            var user = {
+                userId: xx.id,
+                username: xx.username,
+                activity: "updated university",
+                time: new Date()
+            };
+            userActivityLog.push(user)
+            localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+			var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+        function saveSchool() {
+			var school = document.getElementById("school").value
+			
+			userDetails[v1].school = school;
+			localStorage.setItem("userDetails", JSON.stringify(userDetails));
+
+            var user = {
+                userId: xx.id,
+                username: xx.username,
+                activity: "updated school",
+                time: new Date()
+            };
+            userActivityLog.push(user)
+            localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+			var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+		function cancel() {
+			var queryString = "?ip=" + v1;
+            window.location.href = "profile.html" + queryString;
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+
+        function logout() {
+            var userActivityLog = JSON.parse(localStorage.getItem('userActivityLog'));
+
+            var user = {
+                    userId: xx.id,
+                    username: xx.username,
+                    activity: "Loggedout",
+                    time: new Date()
+                };
+                userActivityLog.push(user)
+                localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+
+            window.location.href = "index.html";
+        }
+
+    </script>
+</body>
+
+</html>

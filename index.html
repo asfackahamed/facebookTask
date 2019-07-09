@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facebook</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="header">
+        <div id="navbar">
+            <table class="fr">
+                <tr>
+                    <td class="td1">Email or Phone</td>
+                    <td class="td1">Password</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="inputtext" id="username">
+                    </td>
+                    <td>
+                        <input type="text" class="inputtext" id="password">
+                    </td>
+                    <td>
+                        <div id="button" onClick="login()">Log In</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td2">Forgotton account?</td>
+            </table>
+
+            <h2>facebook</h2>
+
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="content_body">
+            <div id="leftContent">
+                <div class="leftInner font_format">
+                    Facebook helps you connect and share with the people in your life.
+                    <br>
+                    <br>
+                    <img src="https://www.facebook.com/rsrc.php/v3/yx/r/pyNVUg5EM0j.png">
+                </div>
+            </div>
+
+            <div id="rightContent">
+                <div class="font_format">
+                    <h1>Create an account</h1> It's free and always will be.
+                    <br>
+                    <br>
+                </div>
+
+                <div class="formbox">
+                    <input type="text" class="inputbody i1" placeholder="First name">
+                    <input type="text" class="inputbody i1 fr" placeholder="Surname">
+                    <input type="text" class="inputbody i2" placeholder="Mobile number or email address">
+                    <input type="text" class="inputbody i2" placeholder="New password">
+                    <div class="bday">Birthday</div>
+
+                    <span data-type="selectors">
+							<span>
+								<select title="Month" class="selectbody"><option value="0" selected="1">Month</option><option value="1">Jan</option><option value="2">Feb</option><option value="3">Mar</option></select>
+								<select title="Day" class="selectbody fl"><option value="0" selected="1">Day</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select>
+								<select title="Year" class="selectbody fl"><option value="0" selected="1">Year</option><option value="1994">1994</option><option value="1993">1993</option></select>
+							</span>
+                    <div class="fb1 why h"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></div>
+                </div>
+
+                <div class="formbox mt1">
+                    <span data-type="radio" class="spanpad">
+							<input type="radio" id="fem" class="m0">
+							<label for="fem" class="gender">Female</label>
+							<input type="radio" id="male" class="m0">
+							<label for="male" class="gender">Male</label>
+							<input type="radio" id="custom" class="m0">
+							<label for="custom" class="gender">Custom</label>
+						</span>
+
+                </div>
+                <div class="formbox">
+                    <div class="agree">
+                        By clicking Sign Up, you agree to our
+                        <div class="link">Terms</div>,
+                        <div class="link">Data Policy</div> and
+                        <div class="link">Cookie Policy</div>. You may receive SMS notifications from us and can opt out at any time.
+                    </div>
+                </div>
+                <div class="formbox">
+                    <button type="submit" class="signbut font_format">Sign Up</button>
+                </div>
+                <div class="formbox">
+                    <div class="create">
+                        <div class="link h">Create a Page</div> for a celebrity, band or business.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var userDetails = JSON.parse(localStorage.getItem('userDetails'));
+            var userActivityLog = JSON.parse(localStorage.getItem('userActivityLog'));
+
+            for (var i = 0; i < userDetails.length; i++) {
+                if (userDetails[i].username == username && userDetails[i].password == password) {
+                    if (userActivityLog == null || userActivityLog == "") {
+                        var user = [{
+                            userId: userDetails[i].id,
+                            username: userDetails[i].username,
+                            activity: "LoggedIn",
+                            time: new Date()
+                        }];
+                        localStorage.setItem("userActivityLog", JSON.stringify(user));
+                    }
+                    else{
+                        var user = {
+                            userId: userDetails[i].id,
+                            username: userDetails[i].username,
+                            activity: "LoggedIn",
+                            time: new Date()
+                        };
+                        userActivityLog.push(user)
+                        localStorage.setItem("userActivityLog", JSON.stringify(userActivityLog));
+                    }        
+                    var queryString = "?ip=" + i;
+                    window.location.href = "profile.html" + queryString;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
